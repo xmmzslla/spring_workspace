@@ -1,0 +1,18 @@
+package part05_exam;
+
+public class ServiceImp implements Service{
+	
+	private 
+	
+	public ServiceImp() {
+		
+	}
+	
+	
+
+	@Override
+	public void prn() {
+		System.out.println();
+	}
+
+}

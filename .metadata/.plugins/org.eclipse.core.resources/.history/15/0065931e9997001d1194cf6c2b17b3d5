@@ -1,0 +1,15 @@
+package sample02;
+
+public class MessageBeanEnglish implements MessageBean{
+
+	public  MessageBeanEnglish() {
+		// TODO Auto-generated method stub
+		super.sayHello(name);
+	}
+	
+	@Override
+	public void sayHello(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+}

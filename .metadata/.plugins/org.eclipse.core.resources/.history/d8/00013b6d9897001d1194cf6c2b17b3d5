@@ -1,0 +1,14 @@
+package sample02;
+
+public class HelloSpring {
+
+	public static void main(String[] args) {
+		
+
+	}//m
+	
+	public static void displat(MessageBean bean, String name) {
+		bean.sayHello(name);
+	}
+
+}//c

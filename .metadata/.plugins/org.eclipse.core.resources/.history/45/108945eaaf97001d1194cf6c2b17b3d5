@@ -1,0 +1,27 @@
+package part03_exam;
+
+public class User {
+	private String id;
+	private String pass;
+	
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public User(String id) {
+		this.id = id;
+		this.pass = pass;
+	}
+	
+	public User(String id, String pass) {
+		this.id = id;
+		this.pass = pass;
+	}
+	
+	public String getPass(){
+		return pass;
+	}
+	
+	
+
+}

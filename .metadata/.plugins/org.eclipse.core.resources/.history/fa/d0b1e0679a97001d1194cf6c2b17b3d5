@@ -1,0 +1,16 @@
+package sample03;
+
+import sample02.MessageBean;
+
+public class HelloSpring {
+
+	public static void main(String[] args) {
+		
+
+	}//m
+	
+	public static void display(MessageBean bean, String name) {
+		bean.sayHello(name);
+	}//display
+
+}//c

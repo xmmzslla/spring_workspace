@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 
+User user = new User("Kim", a1234);
+ServiceImp svc = new ServiceImp(user);
+ -->
+
+<bean id="user" class="part03_exam.User">
+<constructor-arg value="Kim" type="java.lang.String" index="0" />
+<constructor-arg value="a1234" type="java.lang.String" index="1" />
+</bean>
+
+<bean id="svc" class="part03_exam.ServiceImp">
+<constructor-arg ref="user"></constructor-arg>
+</bean>
+</beans>
