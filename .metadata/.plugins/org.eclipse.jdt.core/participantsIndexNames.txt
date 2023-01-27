@@ -1,6 +1,12 @@
 INDEX VERSION 1.131
+C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3737551053.index
+\spring03_aop\src\main\java
+C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2296692532.index
+\spring08_project\src\main\java
 C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2811275581.index
 \spring04_mvc\src\main\java
+C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3560014999.index
+\spring07_tiles\src\main\java
 C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1787289325.index
 \spring05_jdbc\src\main\java
 C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\732186002.index
@@ -19,7 +25,9 @@ C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsea
 \spring01_basic\src\main\java
 C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3003264475.index
 \spring05_jdbc\src\main\java
+C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2837106881.index
+\spring07_tiles\src\main\java
+C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1008090500.index
+\spring06_tx\src\main\java
 C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3188528843.index
 \Spring04_mvc\src\main\java
-C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3737551053.index
-\spring03_aop\src\main\java
