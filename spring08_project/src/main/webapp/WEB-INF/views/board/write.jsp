@@ -15,6 +15,8 @@
 		
 		$('#btnSave').click(function () {
 			//'#btnSave'여기에서 클릭 이벤트가 진행되면
+			$('[name=content]').val($('[name=content]').val().replace(/\n/gi, '<br/>'));
+			// \를 <br/>로 마꿔서 어쩌구
 			$('#frm').attr('action', 'write.do').submit();
 		});
 		
