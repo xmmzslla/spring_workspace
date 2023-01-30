@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <!-- Dao 메소드명과 id는 같게 하는게 좋음 -->
 <mapper namespace="board">
-    <select id="count" resultType="int">
-        SELECT count(*) FROM board
+    <select id = "count" resultType = "int">
+       
+       SELECT count(*) FROM board
+       
     </select>
     
-    <select id="list" parameterType="board.dto.PageDTO" resultType="board.dto.BoardDTO">
-        SELECT * FROM board
+    <select id = "list" parameterType="board.dto.PageDTO" resultType="board.dto.BoardDTO">
+       SELECT * FROM board
     </select>
-</mapper>   
+       
+    <!--  ref == 0 제목글  ref ==1 답변글 -->
+    <insert id = "save" parameterType="board.dto.BoardDTO">
+       INSERT INTO board(num, writer, subject, reg_date, readcount, ref, re_step, re_level, content, ip, upload, memberEmail)
+       VALUES(board_num_seq.nextval,#{writer}, #{subject}, sysdate, 0,
+       <choose>
+          <when test = "ref==0">
+             board_num_seq.nextval,
+          </when>
+          <otherwise>
+             #{ref},
+          </otherwise>
+       </choose>
+       #{re_step}, #{re_level}, #{content, jdbcType=VARCHAR}, #{ip}, #{upload, jdbcType=VARCHAR},
+       #{memberEmail, jdbcType=VARCHAR}
+        )
+    </insert>
+    <update id="readCount" parameterType="int">
+    UPDATE board
+    SET readCount = readCount + 1
+    WHERE num=#{num}
+    </update>
+    
+    <select id="content" parameterType="int" resultType="board.dto.BoardDTO">
+    SELECT*FROM board
+    WHERE num=#{num}
+    </select>
+</mapper>

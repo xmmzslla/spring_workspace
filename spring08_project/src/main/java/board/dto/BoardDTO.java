@@ -15,6 +15,7 @@ public class BoardDTO {
 	
 	//form페이지에서  파일첨부
 	private MultipartFile filename;
+	//MultipartFile로 오라틀에서는 저장 못해서 String으로 저장해야함
 	
     public BoardDTO() {
     	

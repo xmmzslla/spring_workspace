@@ -27,4 +27,19 @@
      <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
    </definition>
    
+         <definition name="board/write" extends="baseLayout">
+     <put-attribute name="title" value="게시판" />
+     <put-attribute name="heading" value="마이 게시판" />
+     <put-attribute name="subheading" value="Welcome to MyBoard" />
+     <put-attribute name="content" value="/WEB-INF/views/board/write.jsp" /> 
+     <!-- (/board/write.do)보드컨트롤러에있는것 출력 -->
+   </definition>
+   
+   <definition name="board/view" extends="baseLayout">
+     <put-attribute name="title" value="게시판" />
+     <put-attribute name="heading" value="마이 게시판" />
+     <put-attribute name="subheading" value="Welcome to MyBoard" />
+     <put-attribute name="content" value="/WEB-INF/views/board/view.jsp" />
+   </definition>
+   
 </tiles-definitions>

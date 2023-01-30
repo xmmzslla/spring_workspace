@@ -26,20 +26,21 @@ public class BoardServiceImp implements BoardService{
 
 	@Override
 	public List<BoardDTO> listProcess(PageDTO pv) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return boardDao.list(pv); //boardDao에있는 메소드 출력
 	}
 
 	@Override
 	public void insertProcess(BoardDTO dto) {
-		// TODO Auto-generated method stub
+		boardDao.save(dto);
+		//얘 컨트롤러에서 호출
 		
 	}
 
 	@Override
 	public BoardDTO contentProcess(int num) {
-		// TODO Auto-generated method stub
-		return null;
+		boardDao.readCount(num);
+		return boardDao.content(num);
 	}
 
 	@Override
