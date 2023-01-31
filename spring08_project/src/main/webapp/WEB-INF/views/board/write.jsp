@@ -40,13 +40,13 @@
 			<tr>
 				<td width="20%" align="center">writer</td>
 				<td><input type="text" name="writer" size="30" maxlength="30"
-					value="${sessionScope.authInfo.memberEmail}" ></td>
+					readonly="readonly" value="${sessionScope.authInfo.memberEmail}" ></td>
 			</tr>
 
 			<tr>
 				<td width="20%" align="center">제목</td>
-				<td><c:if test="${dto!=null}">답변</c:if> <input type="text"
-					name="subject" size="40" /></td>
+				<td><c:if test="${dto.ref != 0}">답변</c:if> 
+				<input type="text" name="subject" size="40" /></td>
 			</tr>
 
 			<tr>
@@ -62,7 +62,7 @@
 		<!-- 답변글일때.... -->
 		<c:if test="${dto!=null}">
 			<input type="text" name="num" id="num" value="${dto.num}" />
-			<input type="text" name="currentPage" id="currentPage" value="${currentPage}" />
+			<input type="text" name="currentPage" id="currentPage" value="${pv.currentPage}" />
 			<input type="text" name="ref" value="${dto.ref}" />
 			<input type="text" name="re_step" value="${dto.re_step}" />
 			<input type="text" name="re_level" value="${dto.re_level}" />
