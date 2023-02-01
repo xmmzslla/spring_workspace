@@ -49,4 +49,11 @@
      <put-attribute name="content" value="/WEB-INF/views/board/update.jsp" />
    </definition>
    
+    <definition name="member/signup" extends="baseLayout">
+     <put-attribute name="title" value="회원정보" />
+     <put-attribute name="heading" value="마이 회원정보" />
+     <put-attribute name="subheading" value="Welcome to MyMember" />
+     <put-attribute name="content" value="/WEB-INF/views/member/signup.jsp" />
+   </definition>
+   
 </tiles-definitions>

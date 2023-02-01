@@ -1,0 +1,77 @@
+package members.dto;
+
+public class MembersDTO {
+
+	private String memberEmail; //이메일
+	private String memberPass; //비밀번호
+	private String memberName; //이름
+	private String memberPhone; //전화번호
+	private String memberType; //회원 구분 일반회원1, 관리자2 
+	private Boolean rememberEmail; //자동 로그인
+	
+	
+	public MembersDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public String getMemberEmail() {
+		return memberEmail;
+	}
+
+
+	public void setMemberEmail(String memberEmail) {
+		this.memberEmail = memberEmail;
+	}
+
+
+	public String getMemberPass() {
+		return memberPass;
+	}
+
+
+	public void setMemberPass(String memberPass) {
+		this.memberPass = memberPass;
+	}
+
+
+	public String getMemberName() {
+		return memberName;
+	}
+
+
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+
+
+	public String getMemberPhone() {
+		return memberPhone;
+	}
+
+
+	public void setMemberPhone(String memberPhone) {
+		this.memberPhone = memberPhone;
+	}
+
+
+	public String getMemberType() {
+		return memberType;
+	}
+
+
+	public void setMemberType(String memberType) {
+		this.memberType = memberType;
+	}
+
+
+	public Boolean getRememberEmail() {
+		return rememberEmail;
+	}
+
+
+	public void setRememberEmail(Boolean rememberEmail) {
+		this.rememberEmail = rememberEmail;
+	}
+	
+}//c

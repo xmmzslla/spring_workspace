@@ -24,6 +24,7 @@
 		
 		$('#delete').click(function () {
 			$('#frm').attr('action', 'delete.do').submit();
+		});
 	});
 </script>
 
