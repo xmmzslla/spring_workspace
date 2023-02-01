@@ -7,7 +7,7 @@ public class MembersDTO {
 	private String memberName; //이름
 	private String memberPhone; //전화번호
 	private String memberType; //회원 구분 일반회원1, 관리자2 
-	private Boolean rememberEmail; //자동 로그인
+	private boolean rememberEmail; //자동 로그인
 	
 	
 	public MembersDTO() {
@@ -63,15 +63,17 @@ public class MembersDTO {
 	public void setMemberType(String memberType) {
 		this.memberType = memberType;
 	}
-
-
-	public Boolean getRememberEmail() {
+	
+	public boolean isRememberEmail() {
 		return rememberEmail;
 	}
 
-
-	public void setRememberEmail(Boolean rememberEmail) {
+	public void setRememberEmail(boolean rememberEmail) {
 		this.rememberEmail = rememberEmail;
+	}
+	
+	public boolean matchPassword(String memberPass) {
+		return this.memberPass.equals(memberPass);
 	}
 	
 }//c

@@ -24,9 +24,16 @@ public class MembersServiceImp implements MembersService{
 	}
 
 	@Override
-	public AuthInfo lodinProcess(MembersDTO dto) {
-		// TODO Auto-generated method stub
-		return null;
+	public AuthInfo loginProcess(MembersDTO dto) {
+		MembersDTO member = membersDao.selectByEmail(dto.getMemberEmail());
+		//회원이 아니면
+		if(member == null) {
+			System.out.println("회원이 아닙니다.");
+		}
+		if(!member.matchPassword(dto.getMemberPass())) {
+			System.out.println("비밀번호가 다릅니다.");
+		}
+		return new AuthInfo(member.getMemberEmail(), member.getMemberName(), member.getMemberPass());
 	}
 
 	@Override

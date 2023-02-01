@@ -7,7 +7,7 @@ import members.dto.MembersDTO;
 public interface MembersService {
 	
 	public AuthInfo addMemberProcess(MembersDTO dto);
-	public AuthInfo lodinProcess(MembersDTO dto);
+	public AuthInfo loginProcess(MembersDTO dto);
 	
 	public MembersDTO updateMemberProcess(String memberEmail);
 	public void updateMemberProcess(MembersDTO dto);

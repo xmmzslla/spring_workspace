@@ -1,6 +1,7 @@
 package members.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -55,9 +56,20 @@ public class MembersController {
 		return "member/login";
 	}
 	
-//	로그인
+//	로그인 처리
 	@RequestMapping(value = "/member/login.do", method=RequestMethod.POST)
-	public String loginMember(MembersDTO membersDTO, HttpSession session) {
+	public String loginMember(MembersDTO membersDTO, HttpSession session, HttpServletResponse resp) {
+		
+		AuthInfo authInfo = membersService.loginProcess(membersDTO);
+		session.setAttribute("authInfo", authInfo);
+		Cookie rememberCookie = new Cookie("REMEMBER", membersDTO.getMemberEmail());
+		rememberCookie.setPath("/");
+		if(membersDTO.isRememberEmail()) {
+			rememberCookie.setMaxAge(60*60*24*30); //60초*60분*24시간*30일 = 한달
+		}else {
+			rememberCookie.setMaxAge(0);
+		}
+		resp.addCookie(rememberCookie);
 		return "redirect:/home.do";
 	}
 }

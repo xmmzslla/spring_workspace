@@ -2,6 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
  <script type="text/javascript" src="../resources/js/jquery.cookie.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+<!-- https://cdnjs.com/libraries/font-awesome -->
+
+
 <script>
   $(document).ready(function(){
 	  let returnUrl = "${param.returnUrl}";
@@ -27,7 +31,10 @@
  
      <div class="container mb-5">			
 		<div class="avatar">
-			<img src="../resources/images/avatar.png" alt="Avatar">
+			<!-- <img src="../resources/images/avatar.png" alt="Avatar"> -->
+			
+			<i class="fa-solid fa-house-user"></i>
+			<!-- https://fontawesome.com/search?q=user&o=r&m=free -->
 		</div>				
 		<h4 class="text-center">Member Login</h4>	
 		
