@@ -21,6 +21,7 @@
        <property name ="mapperLocations">
          <list>
             <value>classpath:mapper/boardMapper.xml</value>
+             <value>classpath:mapper/memberMapper.xml</value>
          </list>
       </property> 
       
