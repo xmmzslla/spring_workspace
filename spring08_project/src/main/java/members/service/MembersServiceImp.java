@@ -1,5 +1,6 @@
 package members.service;
 
+import common.exception.WrongEmailPasswordException;
 import members.dao.MembersDAO;
 import members.dto.AuthInfo;
 import members.dto.ChangePwdCommand;
@@ -28,10 +29,12 @@ public class MembersServiceImp implements MembersService{
 		MembersDTO member = membersDao.selectByEmail(dto.getMemberEmail());
 		//회원이 아니면
 		if(member == null) {
-			System.out.println("회원이 아닙니다.");
+//			System.out.println("회원이 아닙니다.");
+			throw new WrongEmailPasswordException();
 		}
 		if(!member.matchPassword(dto.getMemberPass())) {
-			System.out.println("비밀번호가 다릅니다.");
+//			System.out.println("비밀번호가 다릅니다.");
+			throw new WrongEmailPasswordException();
 		}
 		return new AuthInfo(member.getMemberEmail(), member.getMemberName(), member.getMemberPass());
 	}
