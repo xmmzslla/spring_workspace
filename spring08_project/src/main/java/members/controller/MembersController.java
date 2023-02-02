@@ -14,10 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import common.exception.WrongEmailPasswordException;
 import members.dto.AuthInfo;
+import members.dto.ChangePwdCommand;
 import members.dto.MembersDTO;
 import members.service.MembersService;
+import oracle.security.crypto.cert.AuthorityInfoAccess;
 
-// http://localhost:8090/myapp/signup.do
+// http://localhost:8090/myapp/member/signup.do
 
 @Controller
 public class MembersController {
@@ -80,7 +82,8 @@ public class MembersController {
 			try {
 				PrintWriter out = resp.getWriter();
 //			out.print("아이디 비밀번호 불일치");
-				out.print("<script>alert('<p>아이디 비밀번호 불일치</p>');location.href='login.do';</script>");
+//				out.print("<script>alert('아이디 비밀번호 불일치');location.href='login.do';</script>");
+				out.print("<script>alert('아이디 비밀번호 불일치');history.go(-1);</script>");
 				out.flush();
 			} catch (IOException e1) {
 				e1.printStackTrace();
@@ -88,4 +91,42 @@ public class MembersController {
 		}
 		return null;
 	}
+	
+//	//	회원정보 수정 폼
+	@RequestMapping(value = "/member/editmember.do", method = RequestMethod.GET)
+	public ModelAndView updateMember(ModelAndView mav, HttpSession session) {
+		AuthInfo authInfo = (AuthInfo)session.getAttribute("authInfo");
+		mav.addObject("membersDTO", membersService.updateMemberProcess(authInfo.getMemberEmail()));
+		mav.setViewName("member/editmember");
+		return mav;
+	}
+	
+//	회원정보 수정 처리
+	@RequestMapping(value = "/member/editmember.do", method = RequestMethod.POST)
+	public String updateMember(MembersDTO membersDTO, HttpSession session) {
+		AuthInfo authInfo = membersService.updateMemberProcess(membersDTO);
+		session.setAttribute("authInfo", authInfo);
+		
+		return "redirect:/home.do";
+	}
+	
+//	
+		@RequestMapping(value = "/member/changepass.do", method = RequestMethod.GET)
+		public String changePassword() {
+			
+			return "member/changepass";
+		}
+		
+		   //비밀번호 변경 처리
+		   @RequestMapping(value="/member/changepass.do", method=RequestMethod.POST)
+		   public String changePassword(ChangePwdCommand changePass, HttpSession session) {
+		      AuthInfo authInfo = (AuthInfo)session.getAttribute("authInfo");
+		      try {
+		         membersService.updatePassProcess(authInfo.getMemberEmail(), changePass);
+		         return "redirect:/home.do";
+		      }catch(WrongEmailPasswordException e) {
+		         return "member/changepass";
+		      }
+		   }
+	
 }// c

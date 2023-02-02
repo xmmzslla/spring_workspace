@@ -10,8 +10,8 @@ public interface MembersService {
 	public AuthInfo loginProcess(MembersDTO dto);
 	
 	public MembersDTO updateMemberProcess(String memberEmail);
-	public void updateMemberProcess(MembersDTO dto);
-	public void updateMemberProcess(String memberEmail, ChangePwdCommand ChangePwd);
+	public AuthInfo updateMemberProcess(MembersDTO dto);
+	public void updatePassProcess(String memberEmail, ChangePwdCommand ChangePwd);
 	
 	
 }

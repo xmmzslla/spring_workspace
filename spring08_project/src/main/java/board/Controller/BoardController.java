@@ -3,6 +3,7 @@ package board.Controller;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +17,7 @@ import board.dto.BoardDTO;
 import board.dto.PageDTO;
 import board.service.BoardService;
 import common.file.FileUpload;
+import members.dto.AuthInfo;
 
 // http://localhost:8090/myapp/home.do
 
@@ -58,7 +60,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/board/write.do", method = RequestMethod.POST)
-	public String writeProExecute(BoardDTO dto, PageDTO pv, HttpServletRequest req, RedirectAttributes ratt) {
+	public String writeProExecute(BoardDTO dto, PageDTO pv, HttpServletRequest req, HttpSession session, RedirectAttributes ratt) {
 		MultipartFile file = dto.getFilename();
 //		System.out.printf("file: " + file.getOriginalFilename());
 		
@@ -68,6 +70,9 @@ public class BoardController {
 			dto.setUpload(random + "_" + file.getOriginalFilename());
 		}
 		dto.setIp(req.getRemoteAddr());
+		
+		AuthInfo info = (AuthInfo)session.getAttribute("authInfo");
+		dto.setMemberEmail(info.getMemberEmail());
 		
 		boardService.insertProcess(dto);
 		

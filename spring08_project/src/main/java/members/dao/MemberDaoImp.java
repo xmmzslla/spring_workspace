@@ -30,13 +30,12 @@ public class MemberDaoImp implements MembersDAO{
 
 	@Override
 	public void updateMember(MembersDTO dto) {
-		// TODO Auto-generated method stub
-		
+		sqlSession.update("members.updateMember", dto);
 	}
 
 	@Override
-	public void updateByEmail(MembersDTO dto) {
-		// TODO Auto-generated method stub
+	public void updateByPass(MembersDTO dto) {
+		sqlSession.update("members.updateByPass", dto); 
 		
 	}
 	

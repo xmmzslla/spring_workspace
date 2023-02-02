@@ -69,9 +69,12 @@
 			</c:if>
 			
 			<input type="button" id="list" value="리스트" />   
-			<input type="button" id="answer" value="답변" />   
+			<input type="button" id="answer" value="답변" />
+			
+			<c:if test="${sessionScope.authInfo != null && sessionScope.authInfo.memberEmail==dto.memberEmail}" > 
 			<input type="button" id="update" value="수정" />   
 			<input type="button" id="delete" value="삭제" />  
+			</c:if>
 		</form>
 	</div>
 </div>

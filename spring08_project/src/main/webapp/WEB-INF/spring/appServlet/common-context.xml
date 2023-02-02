@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns:aop="http://www.springframework.org/schema/aop"
-   xmlns:tx="http://www.springframework.org/schema/tx"
-   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
-      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+<!-- interceptor -->
+<mvc:interceptors>
+    <mvc:interceptor>
+        <mvc:mapping path="/*/*.do" />
+        <mvc:exclude-mapping path="/home.do" />
+        <mvc:exclude-mapping path="/member/login.do" />
+        <mvc:exclude-mapping path="/member/signup.do" />
+        <mvc:exclude-mapping path="/board/list.do"/>
+        <mvc:exclude-mapping path="/board/view.do"/>
+        <bean class="common.interceptor.AuthCheckInterceptor" />
+    </mvc:interceptor>
+</mvc:interceptors>
+
 
    <!--  [1] DataSource 빈 선언 -->
    <bean id = "dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -70,6 +86,7 @@
       <property name="definitions">
          <list>
             <value>/WEB-INF/tiles/tiles.xml</value>
+         
          </list>
       </property>
    </bean>

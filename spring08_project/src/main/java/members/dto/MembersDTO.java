@@ -1,5 +1,9 @@
 package members.dto;
 
+import java.net.PasswordAuthentication;
+
+import common.exception.WrongEmailPasswordException;
+
 public class MembersDTO {
 
 	private String memberEmail; //이메일
@@ -74,6 +78,12 @@ public class MembersDTO {
 	
 	public boolean matchPassword(String memberPass) {
 		return this.memberPass.equals(memberPass);
+	}
+	
+	public void changePassword(String oldPassword, String newPassword) {
+		if(!memberPass.equals(oldPassword))
+			throw new WrongEmailPasswordException();
+		this.memberPass = newPassword;
 	}
 	
 }//c
