@@ -32,7 +32,7 @@
 	<table class="table  table-bordered">
 		<tr>
 			<th width="20%">작성자</th>
-			<td>${dto.writer}</td>
+			<td>${dto.membersDTO.memberName}</td>
 			<th width="20%">조회수</th>
 			<td>${dto.readcount}</td>
 		</tr>

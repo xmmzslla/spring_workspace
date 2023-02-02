@@ -15,7 +15,7 @@
 		<tr>
 			<th class="col-md-1 text-center">번호</th>
 			<th class="col-md-7 text-center">제목</th>
-			<th class="col-md-2 text-center">메일</th>
+			<th class="col-md-2 text-center">작성자</th>
 			<th class="col-md-2 text-center">조회수</th>
 		</tr>
 
@@ -29,8 +29,10 @@
 						<img src="../resources/images/level.gif"
 							width="${20*dto.re_level}" height="15" />
 						<img src="../resources/images/re.gif" />
-					</c:if> <a href="${path}">${dto.subject}</a></td>
-				<td class="text-center">${dto.writer}</td>
+					</c:if> 
+					<a href="${path}">${dto.subject}</a>
+					</td>
+				<td class="text-center">${dto.membersDTO.memberName}</td>
 				<td class="text-center">${dto.readcount}</td>
 			</tr>
 		</c:forEach>

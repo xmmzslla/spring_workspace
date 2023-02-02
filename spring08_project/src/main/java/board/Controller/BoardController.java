@@ -63,6 +63,7 @@ public class BoardController {
 	public String writeProExecute(BoardDTO dto, PageDTO pv, HttpServletRequest req, HttpSession session, RedirectAttributes ratt) {
 		MultipartFile file = dto.getFilename();
 //		System.out.printf("file: " + file.getOriginalFilename());
+//		System.out.println(dto.getMembersDTO().getMemberName());
 		
 		//첨부파일이 있으면...
 		if(!file.isEmpty()) {
@@ -71,8 +72,11 @@ public class BoardController {
 		}
 		dto.setIp(req.getRemoteAddr());
 		
-		AuthInfo info = (AuthInfo)session.getAttribute("authInfo");
-		dto.setMemberEmail(info.getMemberEmail());
+//		AuthInfo info = (AuthInfo)session.getAttribute("authInfo");
+//		dto.setMemberEmail(info.getMemberEmail()); --writer 지우기
+		
+//		AuthInfo authInfo = (AuthInfo)session.getAttribute("autInfo");
+//		dto.setMemberEmail(authInfo.getMemberEmail());
 		
 		boardService.insertProcess(dto);
 		
