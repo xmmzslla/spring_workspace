@@ -45,5 +45,7 @@ C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsea
 \spring08_project\src\main\java
 C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3737551053.index
 \spring03_aop\src\main\java
+C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\839723151.index
+\spring09_ajax\src\main\java
 C:\k_digital\spring_workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4037779822.index
 \spring09_ajax\src\main\java
