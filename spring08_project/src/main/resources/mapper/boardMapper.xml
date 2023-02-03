@@ -10,13 +10,20 @@
 		SELECT count(*) FROM board
 
 	</select>
+	
+	<resultMap type="board.dto.BoardDTO" id="listSelect" autoMapping="true">
+	    <association property="membersDTO" javaType="members.dto.MembersDTO">
+	        <result column="memberName" property="memberName" />
+	    </association>
+	</resultMap>
 
-	<select id="list" parameterType="board.dto.PageDTO"
-		resultType="board.dto.BoardDTO">
+	<select id="list" parameterType="board.dto.PageDTO" resultMap="listSelect">
       <![CDATA[ 
         SELECT b.*
       FROM(SELECT rownum AS rm, a.*
-      FROM(SELECT * FROM board
+      FROM(SELECT b.*, m.memberName
+      FROM board b, members m
+      WHERE b.memberEmail=m.memberEmail(+)
            ORDER BY ref DESC, re_step ASC)a)b
       WHERE b.rm>=#{startRow} AND b.rm<=#{endRow}
      ]]>
@@ -60,9 +67,9 @@
 		resultMap="contentSelect">
 		SELECT b.*, m.memberName
 		FROM board b, members m
-		WHERE b.memberEmail=m.memberEmail
-		AND m.memberEmail=(SELECT memberEmail FROM board
-		                   WHERE num=#{num})
+		WHERE b.memberEmail=m.memberEmail(+)
+		<!-- AND m.memberEmail=(SELECT memberEmail FROM board
+		                   WHERE num=#{num}) -->
 		AND num=#{num}
 	</select>
 
@@ -74,18 +81,18 @@
 
 	<update id="update" parameterType="board.dto.BoardDTO">
 		UPDATE board
-		SET subject = #{subject}, content = #{content}
+		SET subject=#{subject}, content=#{content}
 		<if test="upload!=null">
-			,upload=#{upload}
+			,upload=#{upload} <!-- ,가 이줄에 있어야함 -->
 		</if>
-		WHERE num = #{num}
+		WHERE num=#{num}
 	</update>
 
 	<select id="getFile" parameterType="int" resultType="string">
 		SELECT
 		upload
 		FROM board
-		WHERE num = #{num}
+		WHERE num=#{num}
 	</select>
 
 	<delete id="delete" parameterType="int">
