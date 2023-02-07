@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>form</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script defer src="ajaxview/part04/jpuery.js"></script>
 </head>
 <body>
     <h3>도서검색</h3>
